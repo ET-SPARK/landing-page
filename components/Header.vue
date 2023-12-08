@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-gray-800 text-white p-4">
+  <header class="bg-gray-800 text-white p-4 sticky top-0 shadow-xl z-50">
     <div class="container mx-auto flex items-center justify-between">
       <!-- Logo or Branding -->
       <div class="text-2xl font-bold flex items-center">

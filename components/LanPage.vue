@@ -118,6 +118,8 @@
     </div>
   </div>
   <FeaturedCourses />
+  <UpcomingCourses />
+  <Footer />
 </template>
 
 <script>
