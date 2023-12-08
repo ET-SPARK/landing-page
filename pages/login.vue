@@ -4,40 +4,8 @@
       class="fixed top-0 bottom-0 left-0 right-0 flex justify-center modal-overlay bg-black bg-opacity-60"
     >
       <div class="text-center bg-white h-500 w-500 my-5 p-16 rounded-lg modal">
-        <h6 class="font-semibold text-4xl my-5">Create Account</h6>
+        <h6 class="font-semibold text-2xl my-5">Good to see you again!</h6>
         <form @submit.prevent="submitForm" class="mt-20">
-          <div class="flex mb-8">
-            <div class="mb-4">
-              <label for="name" class="block text-sm font-medium text-gray-700"
-                >Your Name</label
-              >
-              <input
-                type="text"
-                id="name"
-                name="name"
-                class="mt-1 p-2 border rounded-md px-6"
-                placeholder="Enter your name"
-                required
-              />
-            </div>
-
-            <div class="mb-4">
-              <label
-                for="fathersName"
-                class="block text-sm font-medium text-gray-700"
-                >Father's Name</label
-              >
-              <input
-                type="text"
-                id="fathersName"
-                name="fathersName"
-                class="mt-1 p-2 border rounded-md px-6 ml-3"
-                placeholder="Enter your father's name"
-                required
-              />
-            </div>
-          </div>
-
           <div class="flex1">
             <div class="mb-4">
               <label
@@ -81,9 +49,9 @@
                 />
                 <Icon
                   v-else
-                  @click="togglePasswordVisibility"
                   name="material-symbols:visibility"
-                  class="absolute inset-y-0 right-0 pr-2 mt-2 text-gray-500 text-3xl"
+                  class="absolute inset-y-0 right-0 pr-2 mt-2 text-gray-500 text-3xl cursor-pointer"
+                  @click="togglePasswordVisibility"
                 />
                 <input
                   :type="showPassword ? 'text' : 'password'"
@@ -96,26 +64,14 @@
               </div>
             </div>
           </div>
-          <div class="flex-col justify-start">
-            <div class="mb-4">
-              <label class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  class="form-checkbox h-5 w-5 text-blue-500 items-start"
-                />
-                <span class="ml-2 text-gray-700 text-start"
-                  >I accept the terms and conditions</span
-                >
-              </label>
-            </div>
-            <div>
-              <button
-                type="submit"
-                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
-              >
-                Register
-              </button>
-            </div>
+
+          <div class="mt-16">
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
+            >
+              Log in
+            </button>
           </div>
         </form>
       </div>
