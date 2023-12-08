@@ -16,6 +16,7 @@
                 id="name"
                 name="name"
                 class="mt-1 p-2 border rounded-md px-6"
+                placeholder="Enter your name"
                 required
               />
             </div>
@@ -31,6 +32,7 @@
                 id="fathersName"
                 name="fathersName"
                 class="mt-1 p-2 border rounded-md px-6 ml-3"
+                placeholder="Enter your father's name"
                 required
               />
             </div>
@@ -43,13 +45,21 @@
                 class="block text-sm font-medium text-gray-700"
                 >Phone Number</label
               >
-              <input
-                type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                class="mt-1 p-2 border rounded-md w-full px-8"
-                required
-              />
+
+              <div class="relative">
+                <Icon
+                  name="material-symbols:smartphone"
+                  class="absolute inset-y-0 left-0 pl-2 mt-2 text-gray-500 text-3xl"
+                />
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  class="pl-10 mt-1 p-2 border rounded-md w-full"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
             </div>
 
             <div class="mb-4">
@@ -58,23 +68,34 @@
                 class="block text-sm font-medium text-gray-700"
                 >Password</label
               >
-              <input
-                type="password"
-                id="password"
-                name="password"
-                class="mt-1 p-2 border rounded-md w-full px-8"
-                required
-              />
+              <div class="relative">
+                <Icon
+                  name="mynaui:lock-password"
+                  class="absolute inset-y-0 left-0 pl-2 mt-2 text-gray-500 text-3xl"
+                />
+                <Icon
+                  name="material-symbols:visibility"
+                  class="absolute inset-y-0 right-0 pr-2 mt-2 text-gray-500 text-3xl"
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="pl-10 mt-1 p-2 border rounded-md w-full"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
             </div>
           </div>
-          <div class="flex1">
+          <div class="flex-col justify-start">
             <div class="mb-4">
               <label class="inline-flex items-center">
                 <input
                   type="checkbox"
-                  class="form-checkbox h-5 w-5 text-blue-500"
+                  class="form-checkbox h-5 w-5 text-blue-500 items-start"
                 />
-                <span class="ml-2 text-gray-700"
+                <span class="ml-2 text-gray-700 text-start"
                   >I accept the terms and conditions</span
                 >
               </label>
