@@ -35,11 +35,13 @@
 
       <!-- Service Contact Information -->
       <div class="text-right">
-        <button
-          class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
-        >
-          Sign Up
-        </button>
+        <NuxtLink to="/signup">
+          <button
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
+          >
+            Sign Up
+          </button>
+        </NuxtLink>
         <button
           class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
         >
