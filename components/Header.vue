@@ -15,11 +15,11 @@
           <input
             type="text"
             placeholder="Search"
-            class="bg-gray-700 text-white font-light text-sm px-6 py-2 rounded-full focus:outline-none focus:shadow-outline"
+            class="bg-gray-700 text-white font-light text-xs px-8 py-2 rounded-sm focus:outline-none focus:shadow-outline"
           />
           <Icon
             name="material-symbols:search"
-            class="bg-white cursor-pointer"
+            class="bg-white cursor-pointer ml-2 text-3xl"
             color="black"
           />
         </div>
