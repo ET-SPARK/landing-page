@@ -38,7 +38,7 @@
             <div class="text-gray-500">
               <Icon
                 name="carbon:skill-level-basic"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />Level
             </div>
@@ -48,7 +48,7 @@
             <div class="text-gray-500">
               <Icon
                 name="mdi:clock-time-eleven"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />Duration
             </div>
@@ -58,7 +58,7 @@
             <div class="text-gray-500">
               <Icon
                 name="material-symbols:play-lesson"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />lessons
             </div>
@@ -104,7 +104,7 @@
             <div class="text-gray-500">
               <Icon
                 name="carbon:skill-level-basic"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />Level
             </div>
@@ -114,7 +114,7 @@
             <div class="text-gray-500">
               <Icon
                 name="mdi:clock-time-eleven"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />Duration
             </div>
@@ -124,7 +124,7 @@
             <div class="text-gray-500">
               <Icon
                 name="material-symbols:play-lesson"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />lessons
             </div>
@@ -170,7 +170,7 @@
             <div class="text-gray-500">
               <Icon
                 name="carbon:skill-level-basic"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />Level
             </div>
@@ -180,7 +180,7 @@
             <div class="text-gray-500">
               <Icon
                 name="mdi:clock-time-eleven"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />Duration
             </div>
@@ -190,7 +190,7 @@
             <div class="text-gray-500">
               <Icon
                 name="material-symbols:play-lesson"
-                class="bg-white cursor-pointer mr-1"
+                class="cursor-pointer mr-1"
                 color="#212F3D"
               />lessons
             </div>
