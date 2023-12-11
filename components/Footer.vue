@@ -11,10 +11,10 @@
           </NuxtLink>
         </div>
         <div class="flex justify-between">
-          <div class="mr-3">Contact Us</div>
-          <div class="mr-3">FAQ</div>
-          <div class="mr-3">Terms of Service</div>
-          <div class="mr-3">Privacy Policy</div>
+          <NuxtLink to="'/'"><div class="mr-3">Contact Us</div></NuxtLink>
+          <NuxtLink to="'/'"><div class="mr-3">FAQ</div></NuxtLink>
+          <NuxtLink to="'/'"><div class="mr-3">Terms of Service</div></NuxtLink>
+          <NuxtLink to="'/'"><div class="mr-3">Privacy Policy</div></NuxtLink>
         </div>
       </div>
       <div
