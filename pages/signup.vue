@@ -12,6 +12,7 @@
                 >Your Name</label
               >
               <input
+                v-model="yourName"
                 type="text"
                 id="name"
                 name="name"
@@ -28,6 +29,7 @@
                 >Father's Name</label
               >
               <input
+                v-model="fathersName"
                 type="text"
                 id="fathersName"
                 name="fathersName"
@@ -52,6 +54,7 @@
                   class="absolute inset-y-0 left-0 pl-2 mt-2 text-gray-500 text-3xl"
                 />
                 <input
+                  v-model="phoneNumber"
                   type="tel"
                   id="phoneNumber"
                   name="phoneNumber"
@@ -86,6 +89,7 @@
                   class="absolute inset-y-0 right-0 pr-2 mt-2 text-gray-500 text-3xl"
                 />
                 <input
+                  v-model="password"
                   :type="showPassword ? 'text' : 'password'"
                   id="password"
                   name="password"
@@ -135,6 +139,37 @@ export default {
       this.showPassword = !this.showPassword;
     },
   },
+};
+</script>
+
+<script setup>
+import { ref } from "vue";
+import axios from "axios";
+
+const yourName = ref("");
+const fathersName = ref("");
+const phoneNumber = ref("");
+const password = ref("");
+const acceptTerms = ref(false);
+
+const submitForm = async () => {
+  const formData = {
+    your_name: yourName.value,
+    father_name: fathersName.value,
+    phone_number: phoneNumber.value,
+    password: password.value,
+  };
+  try {
+    const response = await axios.post("http://localhost:30001/users", formData);
+
+    if (response.status === 200) {
+      console.log("Registration successful!");
+    } else {
+      console.error("Registration failed:", response.statusText);
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error.message);
+  }
 };
 </script>
 

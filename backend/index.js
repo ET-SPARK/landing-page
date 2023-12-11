@@ -17,13 +17,20 @@ app.get("/", (req, res) => {
 });
 
 // Import noteController
-const noteController = require("./controller/noteController.js");
+// const noteController = require("./controller/noteController.js");
 
-app.post("/notes", noteController.createNote);
-app.get("/notes", noteController.getAllNotes);
-app.get("/notes/:id", noteController.getOneNote);
-app.put("/notes/:id", noteController.updateOneNote);
-app.delete("/notes/:id", noteController.deleteOneNote);
+// app.post("/notes", noteController.createNote);
+// app.get("/notes", noteController.getAllNotes);
+// app.get("/notes/:id", noteController.getOneNote);
+// app.put("/notes/:id", noteController.updateOneNote);
+// app.delete("/notes/:id", noteController.deleteOneNote);
+
+// users
+const usersController = require("./controller/usersController.js");
+
+app.post("/users", usersController.createUser);
+app.get("/users", usersController.getAllUsers);
+app.post("/login", usersController.login);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

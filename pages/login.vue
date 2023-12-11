@@ -13,13 +13,13 @@
                 class="block text-sm font-medium text-gray-700"
                 >Phone Number</label
               >
-
               <div class="relative">
                 <Icon
                   name="material-symbols:smartphone"
                   class="absolute inset-y-0 left-0 pl-2 mt-2 text-gray-500 text-3xl"
                 />
                 <input
+                  v-model="phoneNumber"
                   type="tel"
                   id="phoneNumber"
                   name="phoneNumber"
@@ -29,7 +29,6 @@
                 />
               </div>
             </div>
-
             <div class="mb-4">
               <label
                 for="password"
@@ -49,11 +48,12 @@
                 />
                 <Icon
                   v-else
+                  @click="togglePasswordVisibility"
                   name="material-symbols:visibility"
                   class="absolute inset-y-0 right-0 pr-2 mt-2 text-gray-500 text-3xl cursor-pointer"
-                  @click="togglePasswordVisibility"
                 />
                 <input
+                  v-model="password"
                   :type="showPassword ? 'text' : 'password'"
                   id="password"
                   name="password"
@@ -64,7 +64,6 @@
               </div>
             </div>
           </div>
-
           <div class="mt-16">
             <button
               type="submit"
@@ -80,13 +79,39 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       showPassword: false,
+      phoneNumber: "",
+      password: "",
     };
   },
   methods: {
+    async submitForm() {
+      const formData = {
+        phone_number: this.phoneNumber,
+        password: this.password,
+      };
+
+      try {
+        const response = await axios.post(
+          "http://localhost:30001/login",
+          formData
+        );
+        if (response.status === 200) {
+          console.log("Login successful!");
+          // Handle successful login, e.g., redirect to a different page
+        } else {
+          console.error("Login failed:", response.statusText);
+          // Handle login failure, e.g., show an error message
+        }
+      } catch (error) {
+        console.error("Error submitting login form:", error.message);
+      }
+    },
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword;
     },
