@@ -102,6 +102,10 @@ export default {
           formData
         );
         if (response.status === 200) {
+          // Access the router instance
+          const router = useRouter();
+          // Navigate to the home screen or any other route
+          router.push({ name: "index" });
           console.log("Login successful!");
           // Handle successful login, e.g., redirect to a different page
         } else {
