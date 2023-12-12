@@ -1,4 +1,6 @@
 const pool = require("../db");
+const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 
 exports.createUser = async (req, res) => {
   try {
@@ -53,8 +55,14 @@ exports.login = async (req, res) => {
         .json({ error: "Invalid phone number or password" });
     }
 
-    // User is authenticated, you can create a session or issue a token here
-    res.json({ message: "Login successful", user: user.rows[0] });
+    // User is authenticated, create a JWT token
+    const secretKey = crypto.randomBytes(32).toString("hex");
+    const token = jwt.sign({ userId: user.rows[0].id }, secretKey, {
+      expiresIn: "1h", // Token expiration time, adjust as needed
+    });
+
+    // Send the token to the client
+    res.json({ message: "Login successful", user: user.rows[0], token });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Internal Server Error");

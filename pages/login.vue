@@ -80,7 +80,6 @@
 
 <script>
 import axios from "axios";
-
 export default {
   data() {
     return {
@@ -95,7 +94,6 @@ export default {
         phone_number: this.phoneNumber,
         password: this.password,
       };
-
       try {
         const response = await axios.post(
           "http://localhost:30001/login",
@@ -103,11 +101,22 @@ export default {
         );
         if (response.status === 200) {
           // Access the router instance
+          const token = response.data.token;
+          console.log(token);
+
+          // Save the token to local storage or Vuex store for future use
+          localStorage.setItem("jwtToken", token);
+
+          // // Access the router instance
           const router = useRouter();
-          // Navigate to the home screen or any other route
+
+          // // Navigate to the home screen or any other route
           router.push({ name: "index" });
           console.log("Login successful!");
-          // Handle successful login, e.g., redirect to a different page
+
+          // // Optionally, you can decode the token to get user information
+          const decodedToken = jwt_decode(token);
+          console.log("Decoded Token:", decodedToken);
         } else {
           console.error("Login failed:", response.statusText);
           // Handle login failure, e.g., show an error message
