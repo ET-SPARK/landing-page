@@ -23,6 +23,12 @@ exports.createUser = async (req, res) => {
   }
 };
 
+const generateSecretKey = () => {
+  return crypto.randomBytes(32).toString("hex");
+};
+
+const secretKey = generateSecretKey();
+
 exports.login = async (req, res) => {
   try {
     const { phone_number, password } = req.body;
@@ -56,10 +62,7 @@ exports.login = async (req, res) => {
     }
 
     // User is authenticated, create a JWT token
-    const secretKey = crypto.randomBytes(32).toString("hex");
-    const token = jwt.sign({ userId: user.rows[0].id }, secretKey, {
-      expiresIn: "1h", // Token expiration time, adjust as needed
-    });
+    const token = jwt.sign({ user: user.rows[0] }, secretKey);
 
     // Send the token to the client
     res.json({ message: "Login successful", user: user.rows[0], token });
@@ -68,6 +71,8 @@ exports.login = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+
+//
 
 exports.getAllUsers = async (req, res) => {
   try {

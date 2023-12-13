@@ -34,21 +34,35 @@
       </nav>
 
       <!-- Service Contact Information -->
-      <div class="text-right">
-        <NuxtLink to="/signup">
-          <button
-            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
-          >
-            Sign Up
-          </button>
-        </NuxtLink>
-        <NuxtLink to="/login">
-          <button
-            class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
-          >
-            Log in
-          </button>
-        </NuxtLink>
+      <div class="text-right flex items-center">
+        <!-- If decodedToken exists, display the token, otherwise show signup and login buttons -->
+        <template v-if="decodedToken">
+          <p>hello {{ decodedToken.user.your_name }}</p>
+          <NuxtLink to="/login">
+            <button
+              @click="logout"
+              class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
+            >
+              Log out
+            </button>
+          </NuxtLink>
+        </template>
+        <template v-else>
+          <NuxtLink to="/signup">
+            <button
+              class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
+            >
+              Sign Up
+            </button>
+          </NuxtLink>
+          <NuxtLink to="/login">
+            <button
+              class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
+            >
+              Log in
+            </button>
+          </NuxtLink>
+        </template>
       </div>
       <div>
         <div>
@@ -64,11 +78,33 @@
   </header>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const counter = ref("አማ");
 
 const toggleState = () => {
   counter.value = counter.value === "አማ" ? "En" : "አማ";
+};
+
+const jwtToken = localStorage.getItem("jwtToken");
+let decodedToken = null;
+
+try {
+  // Decode the JWT token (assuming it's a valid JWT token)
+  decodedToken = JSON.parse(atob(jwtToken.split(".")[1]));
+
+  // Now, decodedToken contains the decoded information in JSON format
+  console.log(decodedToken.user);
+} catch (error) {
+  // Handle error, e.g., token is not a valid JWT
+  console.error("Error decoding token:", error.message);
+}
+
+const logout = () => {
+  // Remove the JWT token from localStorage
+  localStorage.removeItem("jwtToken");
+
+  // Set decodedToken to null to trigger the rendering of the login/signup buttons
+  decodedToken = null;
 };
 </script>
 

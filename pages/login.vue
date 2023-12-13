@@ -113,10 +113,6 @@ export default {
           // // Navigate to the home screen or any other route
           router.push({ name: "index" });
           console.log("Login successful!");
-
-          // // Optionally, you can decode the token to get user information
-          const decodedToken = jwt_decode(token);
-          console.log("Decoded Token:", decodedToken);
         } else {
           console.error("Login failed:", response.statusText);
           // Handle login failure, e.g., show an error message
