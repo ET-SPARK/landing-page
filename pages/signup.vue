@@ -145,6 +145,7 @@ export default {
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+const router = useRouter();
 
 const yourName = ref("");
 const fathersName = ref("");
@@ -164,6 +165,7 @@ const submitForm = async () => {
 
     if (response.status === 200) {
       console.log("Registration successful!");
+      router.push({ name: "index" });
     } else {
       console.error("Registration failed:", response.statusText);
     }

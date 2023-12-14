@@ -1,4 +1,3 @@
 <template>
-     <Header />
-    <div>service</div>
+  <Header />
 </template>

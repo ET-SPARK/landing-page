@@ -117,8 +117,21 @@
       </div>
     </div>
   </div>
+
+  <button
+    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full fixed bottom-0 right-0 m-5 z-50"
+  >
+    <Icon
+      name="ic:baseline-help-outline"
+      class="cursor-pointer text-3xl"
+      color="white"
+    />
+    Ask question
+  </button>
+
   <FeaturedCourses />
   <UpcomingCourses />
+  <About />
   <Footer />
 </template>
 

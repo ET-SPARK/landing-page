@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-gray-800 text-white p-4 sticky top-0 shadow-xl z-50">
+  <header class="bg-gray-800 text-white p-2 sticky top-0 shadow-xl z-50">
     <div class="container mx-auto flex items-center justify-between">
       <!-- Logo or Branding -->
       <div class="text-2xl font-bold flex items-center">
@@ -11,11 +11,20 @@
             />
           </NuxtLink>
         </div>
+        <nav class="flex">
+          <NuxtLink to="/service" class="hover:text-gray-300 font-bold ml-5"
+            >Courses
+            <Icon
+              name="material-symbols:arrow-drop-down"
+              class="cursor-pointer text-3xl"
+              color="white"
+          /></NuxtLink>
+        </nav>
         <div class="ml-5 flex items-center">
           <input
             type="text"
             placeholder="Search"
-            class="bg-gray-700 text-white font-light text-xs px-8 py-2 rounded-sm focus:outline-none focus:shadow-outline"
+            class="bg-gray-700 text-white font-light text-xs px-4 w-80 py-2 rounded-sm focus:outline-none focus:shadow-outline"
           />
           <Icon
             name="material-symbols:search"
@@ -26,45 +35,39 @@
       </div>
 
       <!-- Navigation Links -->
-      <nav class="flex space-x-4">
-        <NuxtLink to="/" class="hover:text-gray-300">Home</NuxtLink>
-        <NuxtLink to="/service" class="hover:text-gray-300">Courses</NuxtLink>
-        <NuxtLink to="/service" class="hover:text-gray-300">Service</NuxtLink>
-        <NuxtLink to="/contact" class="hover:text-gray-300">Contact</NuxtLink>
-      </nav>
 
-      <!-- Service Contact Information -->
-      <div class="text-right flex items-center">
-        <!-- If decodedToken exists, display the token, otherwise show signup and login buttons -->
-        <template v-if="decodedToken">
-          <p>hello {{ decodedToken.user.your_name }}</p>
-          <NuxtLink to="/login">
-            <button
-              @click="logout"
-              class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
-            >
-              Log out
-            </button>
-          </NuxtLink>
-        </template>
-        <template v-else>
-          <NuxtLink to="/signup">
-            <button
-              class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
-            >
-              Sign Up
-            </button>
-          </NuxtLink>
-          <NuxtLink to="/login">
-            <button
-              class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
-            >
-              Log in
-            </button>
-          </NuxtLink>
-        </template>
-      </div>
-      <div>
+      <div class="flex">
+        <!-- Service Contact Information -->
+        <div class="text-right flex items-center">
+          <!-- If decodedToken exists, display the token, otherwise show signup and login buttons -->
+          <template v-if="decodedToken">
+            <p>hello {{ decodedToken.user.your_name }}</p>
+            <NuxtLink to="/login">
+              <button
+                @click="logout"
+                class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
+              >
+                Log out
+              </button>
+            </NuxtLink>
+          </template>
+          <template v-else>
+            <NuxtLink to="/signup">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
+              >
+                Sign Up
+              </button>
+            </NuxtLink>
+            <NuxtLink to="/login">
+              <button
+                class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
+              >
+                Log in
+              </button>
+            </NuxtLink>
+          </template>
+        </div>
         <div>
           <button
             @click="toggleState()"
