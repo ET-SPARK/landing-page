@@ -12,23 +12,165 @@
           </NuxtLink>
         </div>
         <nav class="flex">
-          <NuxtLink to="/service" class="hover:text-gray-300 font-bold ml-5"
-            >Courses
-            <Icon
-              name="material-symbols:arrow-drop-down"
-              class="cursor-pointer text-3xl"
-              color="white"
-          /></NuxtLink>
+          <div class="relative">
+            <NuxtLink
+              to="/"
+              class="text-gray-300 text-xl font-semibold ml-5"
+              @click="toggleDropdown"
+            >
+              Courses
+              <Icon
+                name="material-symbols:arrow-drop-down"
+                class="cursor-pointer text-3xl"
+                color="white"
+              />
+            </NuxtLink>
+
+            <!-- The div you want to show on absolute -->
+            <div
+              v-show="isDropdownVisible"
+              class="absolute bg-white text-black p-4 text-sm w-[600px] mt-8 rounded-xl shadow-md"
+            >
+              <div class="flex1">
+                <div class="flex justify-between mb-5">
+                  <div class="text-lg">Categories</div>
+                  <div class="text-sm text-blue-500 underline">View all</div>
+                </div>
+
+                <div
+                  class="flex-1 font-light border-gray-200 border-t-2 border-b-2"
+                >
+                  <div class="grid grid-cols-2 gap-5 justify-between mt-4 mb-4">
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="streamline:money-cash-bill-1-billing-bills-payment-finance-cash-currency-money-accounting"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Accounting & Finance</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="ep:brush"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Art & Crafts</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="mdi:brush-off"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Beauty & Makeup</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="material-symbols:ink-pen-sharp"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Creatives & Design</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="ic:round-fastfood"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Food & Beverage</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="material-symbols:ecg-heart-outline"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Health & Fitness</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="lucide:languages"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Language & Literature</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="ph:music-notes-fill"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Music & Theater</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="guidance:office"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Office productivity</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="guidance:meeting-point"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Personal development</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="bg-blue-500 p-1 mr-2 rounded-md">
+                        <Icon
+                          name="material-symbols:camera"
+                          class="cursor-pointer text-white text-2xl"
+                        />
+                      </div>
+                      <div>Photography & Videography</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-between mt-5 items-center">
+                <div class="flex1">
+                  <div>Get started</div>
+                  <div class="font-light">
+                    Discover a wide range of online courses in variety <br />
+                    of fields to enhance your abilities and knowledge
+                  </div>
+                </div>
+                <div>
+                  <button
+                    class="cursor-pointer border border-gray-500 px-4 py-2"
+                  >
+                    Get started
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </nav>
         <div class="ml-5 flex items-center">
           <input
             type="text"
-            placeholder="Search"
+            placeholder="what do you went to learn?"
             class="bg-gray-700 text-white font-light text-xs px-4 w-80 py-2 rounded-sm focus:outline-none focus:shadow-outline"
           />
           <Icon
             name="material-symbols:search"
-            class="bg-white cursor-pointer ml-2 text-3xl"
+            class="bg-white cursor-pointer ml-2 text-3xl rounded-sm"
             color="black"
           />
         </div>
@@ -108,6 +250,12 @@ const logout = () => {
 
   // Set decodedToken to null to trigger the rendering of the login/signup buttons
   decodedToken = null;
+};
+
+const isDropdownVisible = ref(false);
+
+const toggleDropdown = () => {
+  isDropdownVisible.value = !isDropdownVisible.value;
 };
 </script>
 
