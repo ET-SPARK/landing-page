@@ -38,9 +38,7 @@
                   </div>
                 </div>
 
-                <div
-                  class="flex-1 font-light border-gray-200 border-t-2 border-b-2"
-                >
+                <div class="flex-1 font-light border-gray-200 border-t-2">
                   <div class="grid grid-cols-2 gap-5 justify-between mt-4 mb-4">
                     <div class="flex items-center">
                       <div class="bg-blue-500 p-1 mr-2 rounded-md">
@@ -144,7 +142,9 @@
                   </div>
                 </div>
               </div>
-              <div class="flex justify-between mt-5 items-center">
+              <div
+                class="flex justify-between mt-5 items-center bg-gray-100 p-4"
+              >
                 <div class="flex1">
                   <div>Get started</div>
                   <div class="font-light">
@@ -153,9 +153,7 @@
                   </div>
                 </div>
                 <div>
-                  <button
-                    class="cursor-pointer border border-gray-500 px-4 py-2"
-                  >
+                  <button class="cursor-pointer border bg-gray-300 px-4 py-2">
                     Get started
                   </button>
                 </div>
