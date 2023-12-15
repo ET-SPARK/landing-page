@@ -34,7 +34,9 @@
               <div class="flex1">
                 <div class="flex justify-between mb-5">
                   <div class="text-lg">Categories</div>
-                  <div class="text-sm text-blue-500 underline">View all</div>
+                  <div class="text-sm text-blue-500 underline">
+                    <NuxtLink to="/course"> View all </NuxtLink>
+                  </div>
                 </div>
 
                 <div

@@ -264,15 +264,17 @@
     </div>
   </div>
   <div class="flex justify-start mb-5">
-    <button
-      class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-2xl ml-16 mt-5"
-    >
-      see more courses
-      <Icon
-        name="material-symbols-light:arrow-right-alt"
-        class="cursor-pointer text-white text-2xl"
-      />
-    </button>
+    <NuxtLink to="/course">
+      <button
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-2xl ml-16 mt-5"
+      >
+        see more courses
+        <Icon
+          name="material-symbols-light:arrow-right-alt"
+          class="cursor-pointer text-white text-2xl"
+        />
+      </button>
+    </NuxtLink>
   </div>
 </template>
 
