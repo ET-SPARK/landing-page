@@ -13,9 +13,8 @@
         </div>
         <nav class="flex">
           <div class="relative">
-            <NuxtLink
-              to="/"
-              class="text-gray-300 text-xl font-semibold ml-5"
+            <div
+              class="text-gray-300 text-xl font-semibold ml-5 cursor-pointer"
               @click="toggleDropdown"
             >
               Courses
@@ -24,7 +23,7 @@
                 class="cursor-pointer text-3xl"
                 color="white"
               />
-            </NuxtLink>
+            </div>
 
             <!-- The div you want to show on absolute -->
             <div
@@ -186,14 +185,57 @@
           <!-- If decodedToken exists, display the token, otherwise show signup and login buttons -->
           <template v-if="decodedToken">
             <p>hello {{ decodedToken.user.your_name }}</p>
-            <NuxtLink to="/login">
-              <button
-                @click="logout"
-                class="border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-full ml-6"
-              >
-                Log out
-              </button>
-            </NuxtLink>
+            <div @click="profile" class="relative">
+              <Icon
+                name="material-symbols:account-circle-outline"
+                class="cursor-pointer ml-2 text-4xl rounded-sm"
+                color="white"
+              />
+            </div>
+
+            <div
+              v-show="isProfileVisible"
+              class="absolute bg-white text-black p-4 text-sm w-[150px] mt-48 ml-10 rounded-xl shadow-md"
+            >
+              <div class="flex1">
+                <NuxtLink to="/">
+                  <div class="flex items-center mb-2">
+                    <div>
+                      <Icon
+                        name="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media"
+                        class="cursor-pointer ml-1 text-xl rounded-sm mr-2"
+                        color="black"
+                      />
+                    </div>
+                    <div>My course</div>
+                  </div>
+                </NuxtLink>
+                <NuxtLink to="/">
+                  <div class="flex items-center mb-2">
+                    <div>
+                      <Icon
+                        name="material-symbols:person-outline"
+                        class="cursor-pointer ml-1 mr-2 text-xl rounded-sm"
+                        color="black"
+                      />
+                    </div>
+                    <div>Profile</div>
+                  </div>
+                </NuxtLink>
+                <NuxtLink to="/login" @click="logout">
+                  <div class="flex items-center mb-2">
+                    <div>
+                      <Icon
+                        name="clarity:sign-out-line"
+                        class="cursor-pointer ml-1 mr-2 text-xl rounded-sm"
+                        color="black"
+                      />
+                    </div>
+                    <div>Sign out</div>
+                  </div>
+                </NuxtLink>
+              </div>
+            </div>
           </template>
           <template v-else>
             <NuxtLink to="/signup">
@@ -255,6 +297,11 @@ const logout = () => {
 };
 
 const isDropdownVisible = ref(false);
+const isProfileVisible = ref(false);
+
+const profile = () => {
+  isProfileVisible.value = !isProfileVisible.value;
+};
 
 const toggleDropdown = () => {
   isDropdownVisible.value = !isDropdownVisible.value;
